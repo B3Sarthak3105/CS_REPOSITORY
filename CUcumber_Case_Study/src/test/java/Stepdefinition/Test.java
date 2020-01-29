@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 //import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -29,6 +30,27 @@ public class Test {
 		driver.get("http://10.232.237.143:443/TestMeApp/fetchcat.htm");
 		
 		
+	}
+	
+	@When("^click on sign in$")
+	public void clickonsignin()
+	{
+		driver.findElement(By.xpath("//a[@href='login.htm']")).click();
+	}
+	
+	@When ("^enter valid credential$")
+	public void entervalidcredential(DataTable dt)
+	{
+		List<String> d = dt.asList(String.class);
+		driver.findElement(By.name("userName")).sendKeys(d.get(0));
+		driver.findElement(By.name("password")).sendKeys(d.get(1));
+	}
+	
+	
+	@When("^click on login$")
+	public void clickonlogin()
+	{
+		driver.findElement(By.name("Login")).click();
 	}
 	
 	@When("^clicked on Signup$")
@@ -139,4 +161,10 @@ public class Test {
 		System.out.println("REGISTRATION SUCCESFULL");
 		 
 	}
-}
+	
+	@Then ("^Login is succesfull$")
+	public void Loginissuccesfull()
+	{
+		System.out.println("Login Succesfull");
+	}
+	}

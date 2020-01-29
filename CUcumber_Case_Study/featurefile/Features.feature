@@ -18,9 +18,12 @@ And enter answer as "Ranjit"
 And click on Register
 Then Registration should be succesfull
 
+@login
 Scenario: Login on Testme app
 Given user open Testme App
-When click on signin
-And enter valid username 
-And enter valid Password
-
+When click on sign in
+And enter valid credential 
+|lalitha|
+|Password123|
+And click on login
+Then Login is succesfull
