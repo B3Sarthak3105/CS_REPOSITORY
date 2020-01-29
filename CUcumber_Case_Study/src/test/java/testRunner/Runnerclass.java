@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "featurefile", glue = { "Stepdefinition" }, tags = "@login",plugin = {"preety","jason;target/cucumber.jason"})
+@CucumberOptions(features = "featurefile", glue = { "Stepdefinition" }, tags = "@login", plugin = {"preety", "json:target/cucumber.json"})
 
 public class Runnerclass {
 
